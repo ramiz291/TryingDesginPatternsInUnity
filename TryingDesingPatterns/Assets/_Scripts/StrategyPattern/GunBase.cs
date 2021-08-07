@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class GunBase : MonoBehaviour
 {
     protected int magazineSize;
     protected int fireRate; //rate of fire in minute
     protected int damage;
-    protected FireMode fireMode;
+    protected List<FireMode> fireModes;
+    FireMode activeFireMode;
     bool hasFired;
 
     protected IFireBehavior trigger;
@@ -14,12 +16,13 @@ public class GunBase : MonoBehaviour
         trigger = fb;
     }
 
-    protected void InitializeGunBase(int magSize, int fireRate, int damage, FireMode fireMode)
+    protected void InitializeGunBase(int magSize, int fireRate, int damage, List<FireMode> fireMode)
     {
         magazineSize = magSize;
         this.fireRate = fireRate;
         this.damage = damage;
-        this.fireMode = fireMode;
+        fireModes = fireMode;
+        activeFireMode = fireModes[0];
     }
 
     protected void PullTrigger()
@@ -36,7 +39,7 @@ public class GunBase : MonoBehaviour
     {
         RaycastHit hitInfo = new RaycastHit();
 
-        switch(fireMode)
+        switch(activeFireMode)
         {
             case FireMode.semiauto:
                 //Semi Auto fire routine
