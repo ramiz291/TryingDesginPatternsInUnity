@@ -256,6 +256,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192297566}
+  - component: {fileID: 192297567}
+  - component: {fileID: 192297569}
+  - component: {fileID: 192297568}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -279,6 +282,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192297567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192297565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15a415ce8c956f4f9662359f5214029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGun: {fileID: 0}
+--- !u!114 &192297568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192297565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4890e2c53f062934099d69551aacd5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3.5
+  Cam: {fileID: 1393729962}
+--- !u!143 &192297569
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192297565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &265530195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1268,7 @@ MonoBehaviour:
   lookAt: {fileID: 597708840}
   Player: {fileID: 192297566}
   distance: 10
-  sensivity: 4
+  sensivity: 25
 --- !u!1 &1455462862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1577,6 @@ GameObject:
   - component: {fileID: 1880444986}
   - component: {fileID: 1880444985}
   - component: {fileID: 1880444990}
-  - component: {fileID: 1880444989}
   m_Layer: 0
   m_Name: M416 Gun
   m_TagString: Untagged
@@ -1611,19 +1658,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1880444989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880444984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f15a415ce8c956f4f9662359f5214029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGun: {fileID: 0}
 --- !u!114 &1880444990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1636,7 +1670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c4391e50fd7e14aa4f30ac9b95ed55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunData: {fileID: 0}
+  gunData: {fileID: 11400000, guid: e3af666cf5dd2f849b897346d3124620, type: 2}
   rightHandIkTransform: {fileID: 0}
   leftHandIkTransform: {fileID: 0}
 --- !u!1 &1882845454
@@ -1745,7 +1779,6 @@ GameObject:
   - component: {fileID: 1925719110}
   - component: {fileID: 1925719109}
   - component: {fileID: 1925719114}
-  - component: {fileID: 1925719113}
   m_Layer: 0
   m_Name: M9 Gun
   m_TagString: Untagged
@@ -1827,19 +1860,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1925719113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925719108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f15a415ce8c956f4f9662359f5214029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGun: {fileID: 0}
 --- !u!114 &1925719114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c4391e50fd7e14aa4f30ac9b95ed55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunData: {fileID: 0}
+  gunData: {fileID: 11400000, guid: 161ad387959ed0f44973809c2a337349, type: 2}
   rightHandIkTransform: {fileID: 0}
   leftHandIkTransform: {fileID: 0}

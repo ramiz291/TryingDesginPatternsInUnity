@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Gun : GunBase
+public class Gun : GunBase, IPickupable<Gun>
 {
     [SerializeField] GunData gunData;
 
@@ -19,5 +19,11 @@ public class Gun : GunBase
     public bool GunPickup()
     {
         return false;
+    }
+
+    public PickupData<Gun> PickUp()
+    {
+        PickupData<Gun> data = new PickupData<Gun>(this, PickupType.gun);
+        return data;
     }
 }
